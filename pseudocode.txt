@@ -1,0 +1,34 @@
+Variables
+
+currentCityEl     currentCity   currentDate
+
+currentTempEl     currentTemp
+currentHumEl      currentHum
+currentWindEl     currentWind
+currentUvEl       currentUV
+
+[day1El          day1date
+
+day1conEl       day1con
+day1tempEl      day1temp
+day1humEl       day1hum] -------> repeat for following four days
+
+searchTerm
+
+pastSearch (will relate to local storage)
+
+
+Fetch function will be used to enter a search term to retrieve data from target API
+
+Current conditions function will be used to render current conditions to current conditions container
+    Similar functions will be used to render conditions for each of five future days
+
+Storage function will keep last searched city saved
+
+History function will keep last 8 searched city names stored
+
+Load function will load current conditions of last searched city upon page load along with list of up to 8 last searched cities
+
+
+
+
