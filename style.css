@@ -1,0 +1,15 @@
+#days {
+    display: flex;
+}
+
+#search {
+    float: left;
+}
+
+#current-conditions {
+    float: right;
+}
+
+#five-day {
+    float: right;
+}
