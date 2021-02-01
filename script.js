@@ -3,12 +3,12 @@ var APIkey = "2d5743245871b8e658d41b44bc1e6167";
 var searchBtn = document.querySelector("#listen");
 console.log(searchBtn);
 
-var testInput =document.querySelector("#city-search");
-console.log(testInput);
+var cityInput =document.querySelector("#city-search");
+console.log(cityInput.value);
 
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
-    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + searchedCity + "&appid=" + APIkey;
+    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=" + APIkey;
     console.log(currentWeatherUrl);
   
     fetch(currentWeatherUrl)
