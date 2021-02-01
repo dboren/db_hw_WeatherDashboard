@@ -31,6 +31,12 @@ function getCurrentWeather(searchedCity) {
             currentWind = data.wind.speed;
             console.log(data.wind.speed);
             console.log("current wind: " + currentWind);
+
+            console.log("Temp type: " + typeof(currentTemp));
+            console.log("Humidity type: " + typeof(currentHum));
+            console.log("Wind type: " + typeof(currentWind));
+
+            displayCurrent();
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -49,12 +55,20 @@ function displayCurrent() {
 
     currentTempEl = document.getElementById("current-temp");
     currentTempEl.textContent = "Temperature: " + currentTemp;
+
+    currentHumEl = document.getElementById("current-humidity");
+    currentHumEl.textContent = "Humidity: " + currentHum;
+
+    currentWindEl = document.getElementById("current-wind");
+    currentWindEl.textContent = "Wind Speed: " + currentWind;
 }
 
-console.log("current temp: " + currentTemp);
+console.log("Temp type: " + typeof(currentTemp));
+console.log("Humidity type: " + typeof(currentHum));
+console.log("Wind type: " + typeof(currentWind));
 
 searchBtn.addEventListener("click", getCurrentWeather);
-searchBtn.addEventListener("click", displayCurrent);
+// searchBtn.addEventListener("click", displayCurrent);
 
 searchBtn.addEventListener("submit", getCurrentWeather);
-searchBtn.addEventListener("submit", displayCurrent);
+// searchBtn.addEventListener("submit", displayCurrent);
