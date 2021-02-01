@@ -6,6 +6,8 @@ console.log(searchBtn);
 var cityInput =document.querySelector("#city-search");
 console.log(cityInput.value);
 
+var currentTemp;
+
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
     var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=" + APIkey;
@@ -19,6 +21,8 @@ function getCurrentWeather(searchedCity) {
             console.log(data);
             console.log(searchedCity);
           });
+          currentTemp = data.main.temp;
+          console.log(currentTemp);
         } else {
           alert('Error: ' + response.statusText);
         }
@@ -34,8 +38,11 @@ function displayCurrent() {
     console.log("Current city: " + currentCityEl.textContent);
 
     currentTemp = document.getElementById("current-temp");
-    currentTemp.textContent = data.main.temp;
+    // currentTemp.textContent = data.main.temp;
 }
 
 searchBtn.addEventListener("click", getCurrentWeather);
 searchBtn.addEventListener("click", displayCurrent);
+
+searchBtn.addEventListener("submit", getCurrentWeather);
+searchBtn.addEventListener("submit", displayCurrent);
