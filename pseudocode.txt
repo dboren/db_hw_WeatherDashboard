@@ -30,5 +30,4 @@ History function will keep last 8 searched city names stored
 Load function will load current conditions of last searched city upon page load along with list of up to 8 last searched cities
 
 
-
-
+Endpoint for calling free version of Open Weather Map API is api.openweathermap.org
