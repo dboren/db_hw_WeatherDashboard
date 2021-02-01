@@ -7,6 +7,7 @@ var cityInput =document.querySelector("#city-search");
 console.log(cityInput.value);
 
 var currentTemp;
+var currentHum;
 
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
@@ -23,6 +24,9 @@ function getCurrentWeather(searchedCity) {
             currentTemp = data.main.temp;
             console.log(data.main.temp);
             console.log("current temp: " + currentTemp);
+            currentHum = data.main.humidity;
+            console.log(data.main.humidity);
+            console.log("current humidity: " + currentHum);
           });
         } else {
           alert('Error: ' + response.statusText);
@@ -39,8 +43,8 @@ function displayCurrent() {
     console.log("Current city: " + currentCityEl.textContent);
     console.log("current temp: " + currentTemp);
 
-    currentTemp = document.getElementById("current-temp");
-    currentTemp.textContent = "Temperature: " + currentTemp;
+    currentTempEl = document.getElementById("current-temp");
+    currentTempEl.textContent = "Temperature: " + currentTemp;
 }
 
 console.log("current temp: " + currentTemp);
