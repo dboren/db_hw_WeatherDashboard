@@ -8,6 +8,7 @@ console.log(cityInput.value);
 
 var currentTemp;
 var currentHum;
+var currWind;
 
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
@@ -27,6 +28,9 @@ function getCurrentWeather(searchedCity) {
             currentHum = data.main.humidity;
             console.log(data.main.humidity);
             console.log("current humidity: " + currentHum);
+            currentWind = data.wind.speed;
+            console.log(data.wind.speed);
+            console.log("current wind: " + currentWind);
           });
         } else {
           alert('Error: ' + response.statusText);
