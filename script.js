@@ -28,4 +28,14 @@ function getCurrentWeather(searchedCity) {
       });
   };
 
+function displayCurrent() {
+    currentCityEl = document.getElementById("current-city");
+    currentCityEl.textContent = cityInput.value;
+    console.log("Current city: " + currentCityEl.textContent);
+
+    currentTemp = document.getElementById("current-temp");
+    currentTemp.textContent = data.main.temp;
+}
+
 searchBtn.addEventListener("click", getCurrentWeather);
+searchBtn.addEventListener("click", displayCurrent);
