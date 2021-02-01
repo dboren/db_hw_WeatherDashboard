@@ -17,12 +17,13 @@ function getCurrentWeather(searchedCity) {
       .then(function (response) {
         if (response.ok) {
           console.log(response);
-          response.json().then(function (data) {
+          response.json()
+          .then(function (data) {
             console.log(data);
-            console.log(searchedCity);
+            currentTemp = data.main.temp;
+            console.log(data.main.temp);
+            console.log("current temp: " + currentTemp);
           });
-          currentTemp = data.main.temp;
-          console.log(currentTemp);
         } else {
           alert('Error: ' + response.statusText);
         }
@@ -36,10 +37,13 @@ function displayCurrent() {
     currentCityEl = document.getElementById("current-city");
     currentCityEl.textContent = cityInput.value;
     console.log("Current city: " + currentCityEl.textContent);
+    console.log("current temp: " + currentTemp);
 
     currentTemp = document.getElementById("current-temp");
-    // currentTemp.textContent = data.main.temp;
+    currentTemp.textContent = "Temperature: " + currentTemp;
 }
+
+console.log("current temp: " + currentTemp);
 
 searchBtn.addEventListener("click", getCurrentWeather);
 searchBtn.addEventListener("click", displayCurrent);
