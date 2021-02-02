@@ -32,6 +32,12 @@ function getCurrentWeather(searchedCity) {
             console.log(data.wind.speed);
             console.log("current wind: " + currentWind);
 
+            cityLat = data.coord.lat;
+            console.log("Lat: " + cityLat);
+
+            cityLon = data.coord.lon;
+            console.log("Lon: " + cityLon);
+
             console.log("Temp type: " + typeof(currentTemp));
             console.log("Humidity type: " + typeof(currentHum));
             console.log("Wind type: " + typeof(currentWind));
@@ -62,6 +68,10 @@ function displayCurrent() {
     currentWindEl = document.getElementById("current-wind");
     currentWindEl.textContent = "Wind Speed: " + currentWind;
 }
+
+// function getUVI() {
+
+// }
 
 console.log("Temp type: " + typeof(currentTemp));
 console.log("Humidity type: " + typeof(currentHum));
