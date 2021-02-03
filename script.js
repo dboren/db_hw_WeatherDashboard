@@ -89,7 +89,10 @@ function getCurrentWeather(searchedCity) {
 
             displayCurrent();
 
-            localStorage.setItem("Last viewed city", JSON.stringify(cityInput));
+            lastViewed = cityInput.value;
+            console.log("Last viewed: " + lastViewed);
+            localStorage.setItem("Last viewed city", lastViewed);
+    
 
           
           });
