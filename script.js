@@ -13,6 +13,8 @@ var currWind;
 var cityLat;
 var cityLon;
 
+var currentUVI;
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather(searchedCity) {
@@ -45,11 +47,15 @@ function getCurrentWeather(searchedCity) {
 
             getUVI(cityLat, cityLon);
 
+            console.log(currentUVI);
+
             console.log("Temp type: " + typeof(currentTemp));
             console.log("Humidity type: " + typeof(currentHum));
             console.log("Wind type: " + typeof(currentWind));
 
             displayCurrent();
+
+            displayUVI();
           });
         } else {
           alert("Error: " + response.statusText);
@@ -78,10 +84,17 @@ function displayCurrent() {
     currentWindEl.textContent = "Wind Speed: " + currentWind;
 }
 
+//Function to display UV Index onscreen. Called within getCurrentWeather function
+
+function displayUVI() {
+    currentUviEl = document.getElementById("current-uv")
+    currentUviEl.textContent = "UV Index: " + currentUVI;
+}
+
 //Function to get UV index. Called within getCurrentWeather function
 
 function getUVI(y, x) {
-  var UVIURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=1&appid=" + APIkey;
+  var UVIURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=0&appid=" + APIkey;
   console.log("Lat: " + cityLat);
   console.log("Lon: " + cityLon);
   console.log(UVIURL);
@@ -93,7 +106,12 @@ function getUVI(y, x) {
         response.json()
           .then(function (uvData) {
             console.log(uvData);
+
+            currentUVI = uvData[0].value;
+            console.log("Current UVI: " + currentUVI);
           })
+
+      
       } else {
         alert("Error: " + response.statusText);
       }
