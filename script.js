@@ -35,6 +35,14 @@ var fd3;
 var fd4;
 var fd5;
 
+var currIcon;
+
+var d1icon;
+var d2icon;
+var d3icon;
+var d4icon;
+var d5icon;
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather(searchedCity) {
@@ -58,6 +66,8 @@ function getCurrentWeather(searchedCity) {
             currentWind = data.wind.speed;
             console.log(data.wind.speed);
             console.log("current wind: " + currentWind);
+
+            currIcon = "http://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png";
 
             // currDate = data.main. 
 
@@ -92,7 +102,12 @@ function getCurrentWeather(searchedCity) {
 
 function displayCurrent() {
     currentCityEl = document.getElementById("current-city");
-    currentCityEl.textContent = cityInput.value + " - Current conditions: ";
+    currentCityEl.textContent = cityInput.value + " - Current conditions ";
+
+    currIconEl = document.getElementById("current-icon").src = currIcon;
+    currIconEl = document.getElementById("current-icon").style.visibility = "visible";
+    // currIconEl.src = "currIcon";
+
     console.log("Current city: " + currentCityEl.textContent);
     console.log("current temp: " + currentTemp);
 
