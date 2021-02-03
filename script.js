@@ -31,7 +31,7 @@ var day5Hum;
 
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
-    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=" + APIkey;
+    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
     console.log(currentWeatherUrl);
   
     fetch(currentWeatherUrl)
@@ -87,13 +87,13 @@ function displayCurrent() {
     console.log("current temp: " + currentTemp);
 
     currentTempEl = document.getElementById("current-temp");
-    currentTempEl.textContent = "Temperature: " + currentTemp;
+    currentTempEl.textContent = "Temperature: " + currentTemp + " °F";
 
     currentHumEl = document.getElementById("current-humidity");
-    currentHumEl.textContent = "Humidity: " + currentHum;
+    currentHumEl.textContent = "Humidity: " + currentHum + "%";
 
     currentWindEl = document.getElementById("current-wind");
-    currentWindEl.textContent = "Wind Speed: " + currentWind;
+    currentWindEl.textContent = "Wind Speed: " + currentWind + " MPH";
 }
 
 //Function to display UV Index onscreen. Called within getUVI function
@@ -180,26 +180,26 @@ function getForecast(searchedCity) {
 
 function displayForecast() {
   day1TempEl = document.getElementById("d1t")
-  day1TempEl.textContent = "Temp: " + day1Temp;
+  day1TempEl.textContent = "Temp: " + day1Temp + " °F";
   day2TempEl = document.getElementById("d2t")
-  day2TempEl.textContent = "Temp: " + day2Temp;
+  day2TempEl.textContent = "Temp: " + day2Temp + " °F";
   day3TempEl = document.getElementById("d3t")
-  day3TempEl.textContent = "Temp: " + day3Temp;
+  day3TempEl.textContent = "Temp: " + day3Temp + " °F";
   day4TempEl = document.getElementById("d4t")
-  day4TempEl.textContent = "Temp: " + day4Temp;
+  day4TempEl.textContent = "Temp: " + day4Temp + " °F";
   day5TempEl = document.getElementById("d5t")
-  day5TempEl.textContent = "Temp: " + day5Temp;
+  day5TempEl.textContent = "Temp: " + day5Temp + " °F";
 
   day1HumEl = document.getElementById("d1h")
-  day1HumEl.textContent = "Humidity: " + day1Hum;
+  day1HumEl.textContent = "Humidity: " + day1Hum + "%";
   day2HumEl = document.getElementById("d2h")
-  day2HumEl.textContent = "Humidity: " + day2Hum;
+  day2HumEl.textContent = "Humidity: " + day2Hum + "%";
   day3HumEl = document.getElementById("d3h")
-  day3HumEl.textContent = "Humidity: " + day3Hum;
+  day3HumEl.textContent = "Humidity: " + day3Hum + "%";
   day4HumEl = document.getElementById("d4h")
-  day4HumEl.textContent = "Humidity: " + day4Hum;
+  day4HumEl.textContent = "Humidity: " + day4Hum + "%";
   day5HumEl = document.getElementById("d5h")
-  day5HumEl.textContent = "Humidity: " + day5Hum;
+  day5HumEl.textContent = "Humidity: " + day5Hum + "%";
 }
 
 
