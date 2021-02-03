@@ -152,17 +152,16 @@ function getForecast(searchedCity) {
           console.log(forcData);
         
            day1Temp = forcData.list[3].main.temp;
-           console.log("day1 temp: " + day1Temp);
-          //  day2Temp
-          //  day3Temp
-          //  day4Temp
-          //  day5Temp
+           day2Temp = forcData.list[11].main.temp;
+           day3Temp = forcData.list[19].main.temp;
+           day4Temp = forcData.list[27].main.temp;
+           day5Temp = forcData.list[35].main.temp;
 
-          //  day1Hum
-          //  day2Hum
-          //  day3Hum
-          //  day4Hum
-          //  day5Hum
+           day1Hum = forcData.list[3].main.humidity;
+           day2Hum = forcData.list[11].main.humidity;
+           day3Hum = forcData.list[19].main.humidity;
+           day4Hum = forcData.list[27].main.humidity;
+           day5Hum = forcData.list[35].main.humidity;
         
         });
       } else {
@@ -173,6 +172,14 @@ function getForecast(searchedCity) {
       alert("Unable to connect to OpenWeather");
     });
 };
+
+
+//Function to display 5 day forecast. Called within getForecast function
+
+function displayForecast() {
+  day1TempEl = document.getElementById("current-uv")
+  day1TempEl.textContent = "UV Index: " + currentUVI;
+}
 
 
 console.log("Temp type: " + typeof(currentTemp));
