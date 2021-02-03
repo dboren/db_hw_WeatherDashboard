@@ -15,6 +15,18 @@ var cityLon;
 
 var currentUVI;
 
+var day1Temp;
+var day2Temp;
+var day3Temp;
+var day4Temp;
+var day5Temp;
+
+var day1Hum;
+var day2Hum;
+var day3Hum;
+var day4Hum;
+var day5Hum;
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather(searchedCity) {
@@ -84,7 +96,7 @@ function displayCurrent() {
     currentWindEl.textContent = "Wind Speed: " + currentWind;
 }
 
-//Function to display UV Index onscreen. Called within getCurrentWeather function
+//Function to display UV Index onscreen. Called within getUVI function
 
 function displayUVI() {
     currentUviEl = document.getElementById("current-uv")
@@ -124,6 +136,45 @@ function getUVI(y, x) {
     })
 }
 
+//Function to get 5-day forecast data
+
+function getForecast(searchedCity) {
+  console.log(searchedCity)
+  var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + APIkey;
+  console.log(forecastURL);
+
+  fetch(forecastURL)
+    .then(function (response) {
+      if (response.ok) {
+        console.log(response);
+        response.json()
+        .then(function (forcData) {
+          console.log(forcData);
+        
+           day1Temp = forcData.list[3].main.temp;
+           console.log("day1 temp: " + day1Temp);
+          //  day2Temp
+          //  day3Temp
+          //  day4Temp
+          //  day5Temp
+
+          //  day1Hum
+          //  day2Hum
+          //  day3Hum
+          //  day4Hum
+          //  day5Hum
+        
+        });
+      } else {
+        alert("Error: " + response.statusText);
+      }
+    })
+    .catch(function (error) {
+      alert("Unable to connect to OpenWeather");
+    });
+};
+
+
 console.log("Temp type: " + typeof(currentTemp));
 console.log("Humidity type: " + typeof(currentHum));
 console.log("Wind type: " + typeof(currentWind));
@@ -131,6 +182,7 @@ console.log("UVI: " + typeof(currentUVI));
 
 searchBtn.addEventListener("click", getCurrentWeather);
 // searchBtn.addEventListener("click", displayCurrent);
+searchBtn.addEventListener("click", getForecast);
 
 searchBtn.addEventListener("submit", getCurrentWeather);
 // searchBtn.addEventListener("submit", displayCurrent);
