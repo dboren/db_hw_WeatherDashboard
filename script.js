@@ -27,6 +27,14 @@ var day3Hum;
 var day4Hum;
 var day5Hum;
 
+var currDate;
+
+var fd1;
+var fd2;
+var fd3;
+var fd4;
+var fd5;
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather(searchedCity) {
@@ -50,6 +58,8 @@ function getCurrentWeather(searchedCity) {
             currentWind = data.wind.speed;
             console.log(data.wind.speed);
             console.log("current wind: " + currentWind);
+
+            // currDate = data.main. 
 
             cityLat = data.coord.lat;
             console.log("Lat: " + cityLat);
@@ -163,6 +173,10 @@ function getForecast(searchedCity) {
            day4Hum = forcData.list[27].main.humidity;
            day5Hum = forcData.list[35].main.humidity;
 
+           fd1 = forcData.list[3].dt_txt;
+           console.log("Type: " + typeof(fd1));
+           console.log("Day 1: " + fd1);
+
            displayForecast();
         
         });
@@ -200,6 +214,9 @@ function displayForecast() {
   day4HumEl.textContent = "Humidity: " + day4Hum + "%";
   day5HumEl = document.getElementById("d5h")
   day5HumEl.textContent = "Humidity: " + day5Hum + "%";
+
+  day1DateEl = document.getElementById("date-1");
+  day1DateEl.textContent = fd1;
 }
 
 

@@ -5,14 +5,14 @@
 #search {
     float: left;
     background-color: lightslategray;
-    margin-bottom: 200px;
     border: black;
+    
 }
 
 #current-conditions {
     float: right;
     margin: 20px;
-    margin-right: 300px;
+    margin-right: 220px;
 }
 
 #five-day {
