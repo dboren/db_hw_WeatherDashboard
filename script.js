@@ -162,6 +162,8 @@ function getForecast(searchedCity) {
            day3Hum = forcData.list[19].main.humidity;
            day4Hum = forcData.list[27].main.humidity;
            day5Hum = forcData.list[35].main.humidity;
+
+           displayForecast();
         
         });
       } else {
@@ -177,8 +179,27 @@ function getForecast(searchedCity) {
 //Function to display 5 day forecast. Called within getForecast function
 
 function displayForecast() {
-  day1TempEl = document.getElementById("current-uv")
-  day1TempEl.textContent = "UV Index: " + currentUVI;
+  day1TempEl = document.getElementById("d1t")
+  day1TempEl.textContent = "Temp: " + day1Temp;
+  day2TempEl = document.getElementById("d2t")
+  day2TempEl.textContent = "Temp: " + day2Temp;
+  day3TempEl = document.getElementById("d3t")
+  day3TempEl.textContent = "Temp: " + day3Temp;
+  day4TempEl = document.getElementById("d4t")
+  day4TempEl.textContent = "Temp: " + day4Temp;
+  day5TempEl = document.getElementById("d5t")
+  day5TempEl.textContent = "Temp: " + day5Temp;
+
+  day1HumEl = document.getElementById("d1h")
+  day1HumEl.textContent = "Humidity: " + day1Hum;
+  day2HumEl = document.getElementById("d2h")
+  day2HumEl.textContent = "Humidity: " + day2Hum;
+  day3HumEl = document.getElementById("d3h")
+  day3HumEl.textContent = "Humidity: " + day3Hum;
+  day4HumEl = document.getElementById("d4h")
+  day4HumEl.textContent = "Humidity: " + day4Hum;
+  day5HumEl = document.getElementById("d5h")
+  day5HumEl.textContent = "Humidity: " + day5Hum;
 }
 
 
