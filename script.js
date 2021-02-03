@@ -55,7 +55,7 @@ function getCurrentWeather(searchedCity) {
 
             displayCurrent();
 
-            displayUVI();
+          
           });
         } else {
           alert("Error: " + response.statusText);
@@ -109,6 +109,9 @@ function getUVI(y, x) {
 
             currentUVI = uvData[0].value;
             console.log("Current UVI: " + currentUVI);
+            console.log(typeof(currentUVI));
+
+            displayUVI();
           })
 
       
@@ -124,6 +127,7 @@ function getUVI(y, x) {
 console.log("Temp type: " + typeof(currentTemp));
 console.log("Humidity type: " + typeof(currentHum));
 console.log("Wind type: " + typeof(currentWind));
+console.log("UVI: " + typeof(currentUVI));
 
 searchBtn.addEventListener("click", getCurrentWeather);
 // searchBtn.addEventListener("click", displayCurrent);
