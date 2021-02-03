@@ -188,6 +188,12 @@ function getForecast(searchedCity) {
            day4Hum = forcData.list[27].main.humidity;
            day5Hum = forcData.list[35].main.humidity;
 
+           d1icon = "http://openweathermap.org/img/wn/" + forcData.list[3].weather[0].icon +"@2x.png";
+           d2icon = "http://openweathermap.org/img/wn/" + forcData.list[11].weather[0].icon +"@2x.png";
+           d3icon = "http://openweathermap.org/img/wn/" + forcData.list[19].weather[0].icon +"@2x.png";
+           d4icon = "http://openweathermap.org/img/wn/" + forcData.list[27].weather[0].icon +"@2x.png";
+           d5icon = "http://openweathermap.org/img/wn/" + forcData.list[35].weather[0].icon +"@2x.png";
+
            fd1 = forcData.list[3].dt_txt;
            console.log("Type: " + typeof(fd1));
            console.log("Day 1: " + fd1);
@@ -245,6 +251,17 @@ function displayForecast() {
   day4DateEl.textContent = fd4;
   day5DateEl = document.getElementById("date-5");
   day5DateEl.textContent = fd5;
+
+  d1iconEl = document.getElementById("icon-1").src = d1icon;
+  d1iconEl = document.getElementById("icon-1").style.visibility = "visible";
+  d2iconEl = document.getElementById("icon-2").src = d2icon;
+  d2iconEl = document.getElementById("icon-2").style.visibility = "visible";
+  d3iconEl = document.getElementById("icon-3").src = d3icon;
+  d3iconEl = document.getElementById("icon-3").style.visibility = "visible";
+  d4iconEl = document.getElementById("icon-4").src = d4icon;
+  d4iconEl = document.getElementById("icon-4").style.visibility = "visible";
+  d5iconEl = document.getElementById("icon-5").src = d5icon;
+  d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
 
 
