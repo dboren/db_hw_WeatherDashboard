@@ -13,6 +13,8 @@ var currWind;
 var cityLat;
 var cityLon;
 
+//Function to get current weather for desired city. Runs when search button is clicked
+
 function getCurrentWeather(searchedCity) {
     console.log(searchedCity)
     var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&appid=" + APIkey;
@@ -58,6 +60,8 @@ function getCurrentWeather(searchedCity) {
       });
   };
 
+//Displays current weather conditions on screen in the html. Called within getCurrentWeather function
+
 function displayCurrent() {
     currentCityEl = document.getElementById("current-city");
     currentCityEl.textContent = cityInput.value;
@@ -73,6 +77,8 @@ function displayCurrent() {
     currentWindEl = document.getElementById("current-wind");
     currentWindEl.textContent = "Wind Speed: " + currentWind;
 }
+
+//Function to get UV index. Called within getCurrentWeather function
 
 function getUVI(y, x) {
   var UVIURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=1&appid=" + APIkey;
