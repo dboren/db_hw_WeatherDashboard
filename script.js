@@ -271,6 +271,18 @@ function displayForecast() {
   d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
 
+// function init() {
+
+//   var lastViewed = localStorage.getItem("Last viewed city");
+//   console.log("Reloaded city: " + lastViewed);
+//   cityInput = lastViewed;
+
+//   // getCurrentWeather();
+//   // getForecast();
+// };
+
+// init();
+
 
 console.log("Temp type: " + typeof(currentTemp));
 console.log("Humidity type: " + typeof(currentHum));
