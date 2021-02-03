@@ -92,7 +92,7 @@ function getCurrentWeather(searchedCity) {
 
 function displayCurrent() {
     currentCityEl = document.getElementById("current-city");
-    currentCityEl.textContent = cityInput.value;
+    currentCityEl.textContent = cityInput.value + " - Current conditions: ";
     console.log("Current city: " + currentCityEl.textContent);
     console.log("current temp: " + currentTemp);
 
@@ -177,6 +177,11 @@ function getForecast(searchedCity) {
            console.log("Type: " + typeof(fd1));
            console.log("Day 1: " + fd1);
 
+           fd2 = forcData.list[11].dt_txt;
+           fd3 = forcData.list[19].dt_txt;
+           fd4 = forcData.list[27].dt_txt;
+           fd5 = forcData.list[35].dt_txt;
+
            displayForecast();
         
         });
@@ -217,6 +222,14 @@ function displayForecast() {
 
   day1DateEl = document.getElementById("date-1");
   day1DateEl.textContent = fd1;
+  day2DateEl = document.getElementById("date-2");
+  day2DateEl.textContent = fd2;
+  day3DateEl = document.getElementById("date-3");
+  day3DateEl.textContent = fd3;
+  day4DateEl = document.getElementById("date-4");
+  day4DateEl.textContent = fd4;
+  day5DateEl = document.getElementById("date-5");
+  day5DateEl.textContent = fd5;
 }
 
 
