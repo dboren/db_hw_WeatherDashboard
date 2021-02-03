@@ -43,6 +43,8 @@ var d3icon;
 var d4icon;
 var d5icon;
 
+var lastViewed;
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather(searchedCity) {
@@ -86,6 +88,8 @@ function getCurrentWeather(searchedCity) {
             console.log("Wind type: " + typeof(currentWind));
 
             displayCurrent();
+
+            localStorage.setItem("Last viewed city", JSON.stringify(cityInput));
 
           
           });
