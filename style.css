@@ -4,12 +4,31 @@
 
 #search {
     float: left;
+    background-color: lightslategray;
+    margin-bottom: 200px;
+    border: black;
 }
 
 #current-conditions {
     float: right;
+    margin: 20px;
+    margin-right: 300px;
 }
 
 #five-day {
     float: right;
+    margin-top: 50px;
+
+}
+
+.card {
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(14, 180, 221);
+    color: white;
+}
+
+#top-header {
+    background-color: black;
+    color: white;
 }
