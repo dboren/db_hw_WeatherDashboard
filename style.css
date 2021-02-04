@@ -44,3 +44,19 @@
     height: 40px;
     width: 45px;
 }
+
+.favorable-uv {
+    background-color: green;
+    color: white;
+}
+
+.moderate-uv {
+    background-color: orange;
+    color: white;
+}
+
+.severe-uv {
+    background-color: red;
+    color: white;
+
+}
