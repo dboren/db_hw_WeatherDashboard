@@ -171,7 +171,7 @@ function getUVI(y, x) {
 
 function getForecast(searchedCity) {
   console.log(searchedCity)
-  var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&appid=" + APIkey;
+  var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
   console.log(forecastURL);
 
   fetch(forecastURL)
