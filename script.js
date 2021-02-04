@@ -132,7 +132,16 @@ function displayCurrent() {
 function displayUVI() {
     currentUviEl = document.getElementById("current-uv")
     currentUviEl.textContent = "UV Index: " + currentUVI;
-}
+
+    if (currentUVI < 3) {
+      currentUviEl = document.getElementById("current-uv").className = "favorable-uv"
+    } else if (currentUVI >= 3 && currentUVI < 5 ) {
+        currentUviEl = document.getElementById("current-uv").className = "moderate-uv"
+      } else if (currentUVI >= 5) {
+         currentUviEl = document.getElementById("current-uv").className = "severe-uv"
+    }
+        
+};
 
 //Function to get UV index. Called within getCurrentWeather function
 
@@ -269,6 +278,10 @@ function displayForecast() {
   d5iconEl = document.getElementById("icon-5").src = d5icon;
   d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
+
+// function uviColoration() {
+//   var
+// }
 
 function init() {
 
