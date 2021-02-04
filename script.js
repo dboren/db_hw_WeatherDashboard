@@ -48,7 +48,7 @@ var lastViewed;
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather() {
-    var currentWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
+    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
     console.log(currentWeatherUrl);
   
     fetch(currentWeatherUrl)
@@ -68,7 +68,7 @@ function getCurrentWeather() {
             console.log(data.wind.speed);
             console.log("current wind: " + currentWind);
 
-            currIcon = "http://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png";
+            currIcon = "https://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png";
 
             // currDate = data.main. 
 
@@ -137,7 +137,7 @@ function displayUVI() {
 //Function to get UV index. Called within getCurrentWeather function
 
 function getUVI(y, x) {
-  var UVIURL = "http://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=0&appid=" + APIkey;
+  var UVIURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=0&appid=" + APIkey;
   console.log("Lat: " + cityLat);
   console.log("Lon: " + cityLon);
   console.log(UVIURL);
@@ -171,7 +171,7 @@ function getUVI(y, x) {
 
 function getForecast(searchedCity) {
   console.log(searchedCity)
-  var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
+  var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
   console.log(forecastURL);
 
   fetch(forecastURL)
@@ -194,11 +194,11 @@ function getForecast(searchedCity) {
            day4Hum = forcData.list[27].main.humidity;
            day5Hum = forcData.list[35].main.humidity;
 
-           d1icon = "http://openweathermap.org/img/wn/" + forcData.list[3].weather[0].icon +"@2x.png";
-           d2icon = "http://openweathermap.org/img/wn/" + forcData.list[11].weather[0].icon +"@2x.png";
-           d3icon = "http://openweathermap.org/img/wn/" + forcData.list[19].weather[0].icon +"@2x.png";
-           d4icon = "http://openweathermap.org/img/wn/" + forcData.list[27].weather[0].icon +"@2x.png";
-           d5icon = "http://openweathermap.org/img/wn/" + forcData.list[35].weather[0].icon +"@2x.png";
+           d1icon = "https://openweathermap.org/img/wn/" + forcData.list[3].weather[0].icon +"@2x.png";
+           d2icon = "https://openweathermap.org/img/wn/" + forcData.list[11].weather[0].icon +"@2x.png";
+           d3icon = "https://openweathermap.org/img/wn/" + forcData.list[19].weather[0].icon +"@2x.png";
+           d4icon = "https://openweathermap.org/img/wn/" + forcData.list[27].weather[0].icon +"@2x.png";
+           d5icon = "https://openweathermap.org/img/wn/" + forcData.list[35].weather[0].icon +"@2x.png";
 
            fd1 = forcData.list[3].dt_txt;
            console.log("Type: " + typeof(fd1));
