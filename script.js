@@ -47,8 +47,7 @@ var lastViewed;
 
 //Function to get current weather for desired city. Runs when search button is clicked
 
-function getCurrentWeather(searchedCity) {
-    console.log(searchedCity)
+function getCurrentWeather() {
     var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
     console.log(currentWeatherUrl);
   
@@ -271,17 +270,17 @@ function displayForecast() {
   d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
 
-// function init() {
+function init() {
 
-//   var lastViewed = localStorage.getItem("Last viewed city");
-//   console.log("Reloaded city: " + lastViewed);
-//   cityInput = lastViewed;
+  var lastViewed = localStorage.getItem("Last viewed city");
+  console.log("Reloaded city: " + lastViewed);
+  cityInput.value = lastViewed;
 
-//   // getCurrentWeather();
-//   // getForecast();
-// };
+  getCurrentWeather();
+  getForecast();
+};
 
-// init();
+init();
 
 
 console.log("Temp type: " + typeof(currentTemp));
