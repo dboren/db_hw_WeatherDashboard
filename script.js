@@ -48,7 +48,7 @@ var lastViewed;
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather() {
-    var currentWeatherUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
+    var currentWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
     console.log(currentWeatherUrl);
   
     fetch(currentWeatherUrl)
