@@ -45,6 +45,8 @@ var d5icon;
 
 var lastViewed;
 
+var history = [];
+
 //Function to get current weather for desired city. Runs when search button is clicked
 
 function getCurrentWeather() {
@@ -91,6 +93,11 @@ function getCurrentWeather() {
             lastViewed = cityInput.value;
             console.log("Last viewed: " + lastViewed);
             localStorage.setItem("Last viewed city", lastViewed);
+
+
+            // console.log(history);
+            // history = history.push("lastViewed");
+            // console.log("search history" + history);
     
 
           
@@ -279,9 +286,6 @@ function displayForecast() {
   d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
 
-// function uviColoration() {
-//   var
-// }
 
 function init() {
 
