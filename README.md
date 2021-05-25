@@ -30,6 +30,6 @@ Another display function is called within the 5-day-forecast search function in 
 
 ## Reference 
 
-![Screenshot of app](Assets\WeatherDashboardSC.JPG)
+![Screenshot of app](https://github.com/dboren/db_hw_WeatherDashboard/blob/main/Assets/WeatherDashboardSC.JPG?raw=true)
 
 App can be accessed at [https://dboren.github.io/db_hw_WeatherDashboard/](https://dboren.github.io/db_hw_WeatherDashboard/)
