@@ -45,7 +45,7 @@ var d5icon;
 
 var lastViewed;
 
-var history = [];
+var searchHistory = [];
 
 //Function to get current weather for desired city. Runs when search button is clicked
 
@@ -61,41 +61,38 @@ function getCurrentWeather() {
           .then(function (data) {
             console.log(data);
             currentTemp = data.main.temp;
-            console.log(data.main.temp);
-            console.log("current temp: " + currentTemp);
+            // console.log(data.main.temp);
+            // console.log("current temp: " + currentTemp);
             currentHum = data.main.humidity;
-            console.log(data.main.humidity);
-            console.log("current humidity: " + currentHum);
+            // console.log(data.main.humidity);
+            // console.log("current humidity: " + currentHum);
             currentWind = data.wind.speed;
-            console.log(data.wind.speed);
-            console.log("current wind: " + currentWind);
+            // console.log(data.wind.speed);
+            // console.log("current wind: " + currentWind);
 
             currIcon = "https://openweathermap.org/img/wn/" + data.weather[0].icon +"@2x.png";
 
             // currDate = data.main. 
 
             cityLat = data.coord.lat;
-            console.log("Lat: " + cityLat);
+            // console.log("Lat: " + cityLat);
 
             cityLon = data.coord.lon;
-            console.log("Lon: " + cityLon);
+            // console.log("Lon: " + cityLon);
 
             getUVI(cityLat, cityLon);
 
-            console.log(currentUVI);
-
-            console.log("Temp type: " + typeof(currentTemp));
-            console.log("Humidity type: " + typeof(currentHum));
-            console.log("Wind type: " + typeof(currentWind));
+            // console.log(currentUVI);
 
             displayCurrent();
 
             lastViewed = cityInput.value;
             console.log("Last viewed: " + lastViewed);
+
             localStorage.setItem("Last viewed city", lastViewed);
 
+            addHistory();
 
-            // console.log(history);
             // history = history.push("lastViewed");
             // console.log("search history" + history);
     
@@ -156,7 +153,7 @@ function getUVI(y, x) {
   var UVIURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + y + "&lon=" + x + "&cnt=0&appid=" + APIkey;
   console.log("Lat: " + cityLat);
   console.log("Lon: " + cityLon);
-  console.log(UVIURL);
+  // console.log(UVIURL);
 
   fetch(UVIURL)
     .then(function (response) {
@@ -168,7 +165,6 @@ function getUVI(y, x) {
 
             currentUVI = uvData[0].value;
             console.log("Current UVI: " + currentUVI);
-            console.log(typeof(currentUVI));
 
             displayUVI();
           })
@@ -188,7 +184,7 @@ function getUVI(y, x) {
 function getForecast(searchedCity) {
   console.log(searchedCity)
   var forecastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInput.value + "&units=imperial&appid=" + APIkey;
-  console.log(forecastURL);
+  // console.log(forecastURL);
 
   fetch(forecastURL)
     .then(function (response) {
@@ -217,8 +213,7 @@ function getForecast(searchedCity) {
            d5icon = "https://openweathermap.org/img/wn/" + forcData.list[35].weather[0].icon +"@2x.png";
 
            fd1 = forcData.list[3].dt_txt;
-           console.log("Type: " + typeof(fd1));
-           console.log("Day 1: " + fd1);
+          //  console.log("Day 1: " + fd1);
 
            fd2 = forcData.list[11].dt_txt;
            fd3 = forcData.list[19].dt_txt;
@@ -286,6 +281,13 @@ function displayForecast() {
   d5iconEl = document.getElementById("icon-5").style.visibility = "visible";
 }
 
+function addHistory() {
+  console.log("history: " + searchHistory);
+  console.log("to be added: " + lastViewed)
+  searchHistory.push(lastViewed);
+  console.log("new history: " + searchHistory);
+
+}
 
 function init() {
 
@@ -299,11 +301,6 @@ function init() {
 
 init();
 
-
-console.log("Temp type: " + typeof(currentTemp));
-console.log("Humidity type: " + typeof(currentHum));
-console.log("Wind type: " + typeof(currentWind));
-console.log("UVI: " + typeof(currentUVI));
 
 searchBtn.addEventListener("click", getCurrentWeather);
 // searchBtn.addEventListener("click", displayCurrent);
